@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF 解析工具</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PDF 解析工具</h1>
+            <p>选择 PDF 文件，预览并解析内容</p>
+        </header>
+
+        <main>
+            <section class="upload-section">
+                <h2>上传 PDF 文件</h2>
+                <div class="upload-area" id="uploadArea">
+                    <p>拖拽文件到此处或点击选择文件</p>
+                    <input type="file" id="fileInput" accept=".pdf" hidden>
+                    <button id="selectFileBtn">选择文件</button>
+                </div>
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <p>已选择文件: <span id="fileName"></span></p>
+                </div>
+            </section>
+
+            <section class="file-list-section">
+                <h2>当前目录中的 PDF 文件</h2>
+                <div class="file-list-container">
+                    <ul id="fileList"></ul>
+                </div>
+            </section>
+
+            <section class="preview-section">
+                <h2>PDF 预览</h2>
+                <div class="preview-container">
+                    <iframe id="pdfPreview" src="" width="100%" height="500px"></iframe>
+                </div>
+            </section>
+
+            <section class="parse-section">
+                <h2>解析 PDF</h2>
+                <div class="options">
+                    <label>
+                        <input type="checkbox" id="showTextBorders" checked>
+                        显示文本边框
+                    </label>
+                </div>
+                <button id="parseBtn" disabled>解析 PDF 内容</button>
+                <button id="parseIntegratedBtn" disabled>显示整合的文本</button>
+                <button id="extractInvoiceBtn" disabled>提取发票信息</button>
+                <div class="parse-result" id="parseResult" style="display: none;">
+                    <h3>解析结果</h3>
+                    <div id="textContent"></div>
+                    <div id="graphicContent" style="border: 1px solid black;"></div>
+                </div>
+                <div class="invoice-info" id="invoiceInfo" style="display: none;">
+                    <h3>发票信息</h3>
+                    <div id="invoiceContent"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
